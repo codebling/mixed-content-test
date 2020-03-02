@@ -24,6 +24,10 @@ app.use( (req, res, next) => {
   res.set('Content-Security-Policy', 'block-all-mixed-content;');
   next();
 });
+app.use( (req, res, next) => {
+  res.set('Content-Security-Policy', 'img-src https:');
+  next();
+});
 
 app.use(cors());
 app.use(express.static('dist'));
