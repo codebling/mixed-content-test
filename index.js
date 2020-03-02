@@ -20,6 +20,10 @@ app.post(CSP_VIOLATION_REPORT_ENDPOINT, (req, res) => {
   req.on('end', () => res.send('ok'));  
   fs.readFile(reportFile, (err, data) => debug('csp-report')(err || JSON.parse(data.toString())) );
 });
+app.use( (req, res, next) => {
+  res.set('Content-Security-Policy', 'block-all-mixed-content;');
+  next();
+});
 
 app.use(cors());
 app.use(express.static('dist'));
