@@ -15,7 +15,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-RUN ./node_modules/.bin/parcel build index.html
+RUN ./node_modules/.bin/parcel build public/index.html
 EXPOSE 80
 EXPOSE 443
 

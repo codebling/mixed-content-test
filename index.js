@@ -23,7 +23,7 @@ app.post(CSP_VIOLATION_REPORT_ENDPOINT, (req, res) => {
 
 app.use(cors());
 app.use(express.static('./dist'));
-app.use(express.static('./'));
+app.use(express.static('./public'));
 
 https.createServer(certs, app).listen(443, () => {
   console.log('https');
